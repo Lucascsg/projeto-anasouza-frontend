@@ -1,0 +1,157 @@
+/* Definindo variáveis de cor para facilitar a manutenção */
+:root {
+    --cor-principal: #B07272; /* Este é um tom aproximado do seu protótipo. Ajuste se necessário! */
+    --cor-texto-claro: #FFFFFF;
+    --cor-fundo-claro: #f8f9fa;
+}
+
+/* Estilos da Barra de Navegação */
+.navbar-custom {
+    background-color: var(--cor-principal);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Apenas um exemplo de fonte, troque se tiver uma específica */
+}
+
+.navbar-custom .navbar-brand img {
+    height: 40px; /* Ajuste o tamanho do logo conforme necessário */
+}
+
+.navbar-custom .nav-link {
+    color: var(--cor-texto-claro);
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    transition: opacity 0.3s;
+}
+
+.navbar-custom .nav-link:hover {
+    opacity: 0.8;
+}
+
+/* Estilos dos Ícones */
+.navbar-icons a {
+    color: var(--cor-texto-claro);
+    font-size: 1.2rem;
+    transition: opacity 0.3s;
+}
+
+.navbar-icons a:hover {
+    opacity: 0.8;
+}
+
+/* =================================== */
+/* Estilos da Seção Hero (Vídeo)       */
+/* =================================== */
+
+#hero {
+    position: relative; /* Essencial para posicionar o conteúdo sobre o vídeo */
+    height: 100vh; /* Ocupa 100% da altura da tela */
+    min-height: 500px;
+    width: 100%;
+    overflow: hidden; /* Esconde partes do vídeo que "sobram" */
+    display: flex; /* Para centralizar o conteúdo */
+    align-items: center;
+    justify-content: center;
+}
+
+#hero .hero-video-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Coloca o vídeo atrás do conteúdo */
+}
+
+#hero video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Faz o vídeo cobrir toda a área sem distorcer */
+}
+
+/* Camada escura sobre o vídeo para legibilidade do texto */
+#hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Overlay preto com 40% de opacidade */
+    z-index: 1;
+}
+
+#hero .hero-content {
+    position: relative;
+    z-index: 2; /* Garante que o conteúdo fique na frente do overlay */
+}
+
+#hero .hero-content h1 {
+    font-weight: 700;
+}
+
+#hero .hero-content .btn {
+    border-radius: 50px; /* Deixa o botão arredondado */
+    padding: 12px 30px;
+    font-weight: 600;
+}
+
+section h2 {
+    color: var(--cor-principal);
+    margin-bottom: 1rem;
+}
+
+.product-card {
+    border: none;
+    border-radius: 15px; /* Bordas um pouco mais arredondadas */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Sombra sutil */
+    transition: all 0.3s ease-in-out; /* Animação suave para o hover */
+}
+
+.product-card:hover {
+    transform: translateY(-8px); /* Efeito de "levantar" o card */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12); /* Sombra mais forte no hover */
+}
+
+.product-card .card-title {
+    color: #333;
+    font-weight: 600;
+}
+
+.product-card .btn {
+    border-radius: 50px;
+    padding: 8px 25px;
+    font-weight: 500;
+    border-color: var(--cor-principal);
+    color: var(--cor-principal);
+}
+
+.product-card .btn:hover {
+    background-color: var(--cor-principal);
+    color: white;
+}
+
+/* =================================== */
+/* Estilos da Seção de Blog            */
+/* =================================== */
+
+.btn-custom-primary {
+    background-color: var(--cor-principal);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 30px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-custom-primary:hover {
+    background-color: var(--cor-principal);
+    color: white;
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+#blog img {
+    border-radius: 15px; /* Bordas um pouco mais arredondadas na imagem do blog */
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "nome": "Bolsa de Ombro em Crochê",
+    "preco": "R$ 159,90",
+    "imagem": "imagens/bolsa1.png"
+  },
+  {
+    "id": 2,
+    "nome": "Bolsa Redonda de Palha",
+    "preco": "R$ 179,90",
+    "imagem": "imagens/bolsa2.png"
+  },
+  {
+    "id": 3,
+    "nome": "Bolsa Transversal de Couro",
+    "preco": "R$ 149,90",
+    "imagem": "imagens/bolsa3.png"
+  }
+]

@@ -1,0 +1,203 @@
+/* =================================== */
+/* VARIÁVEIS GLOBAIS E ESTILOS BASE    */
+/* =================================== */
+:root {
+    /* Cores da sua paleta */
+    --cor-primaria: #DD7230;     /* Caju Marrom - Usada em elementos de destaque como navbar e footer */
+    --cor-secundaria: #854D27;   /* Castanho-avermelhado - Usada em botões e detalhes secundários */
+    --cor-texto-escuro: #06070E; /* Preto - Usada na maior parte dos textos para legibilidade */
+    --cor-verde-detalhe: #29524A; /* Brunswick verde - Pode ser usada para detalhes futuros */
+    --cor-clara-detalhe: #FFD972; /* Jasmim - Pode ser usada para detalhes futuros */
+
+    /* Cores Neutras e de Fundo */
+    --cor-fundo-claro: #F8F5F2; /* Fundo principal do site, um branco "quente" */
+    --cor-texto-claro: #FFFFFF;    /* Para textos sobre fundos escuros */
+}
+
+body {
+    /* As fontes serão definidas no próximo passo (Tipografia) */
+    font-family: sans-serif; 
+    background-color: var(--cor-fundo-claro);
+    color: var(--cor-texto-escuro);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    /* A fonte dos títulos será definida no próximo passo */
+    color: var(--cor-texto-escuro);
+}
+
+
+/* =================================== */
+/* ESTILOS DA BARRA DE NAVEGAÇÃO       */
+/* =================================== */
+.navbar-custom {
+    background-color: var(--cor-primaria);
+}
+
+.navbar-custom .navbar-brand img {
+    height: 40px;
+}
+
+.navbar-custom .nav-link {
+    color: var(--cor-texto-claro);
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    transition: opacity 0.3s;
+}
+
+.navbar-custom .nav-link:hover {
+    opacity: 0.8;
+}
+
+.navbar-icons a {
+    color: var(--cor-texto-claro);
+    font-size: 1.2rem;
+    transition: opacity 0.3s;
+}
+
+.navbar-icons a:hover {
+    opacity: 0.8;
+}
+
+
+/* =================================== */
+/* ESTILOS DA SEÇÃO HERO (VÍDEO)       */
+/* =================================== */
+#hero {
+    position: relative;
+    height: 100vh;
+    min-height: 500px;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#hero .hero-video-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+#hero video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+#hero .hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+#hero .hero-content h1 {
+    font-weight: 700;
+}
+
+#hero .hero-content .btn {
+    border-radius: 50px;
+    padding: 12px 30px;
+    font-weight: 600;
+}
+
+
+/* =================================== */
+/* ESTILOS GERAIS DAS SEÇÕES           */
+/* =================================== */
+section h2 {
+    color: var(--cor-texto-escuro);
+    margin-bottom: 1rem;
+}
+
+
+/* =================================== */
+/* ESTILOS DA SEÇÃO DE PRODUTOS        */
+/* =================================== */
+.product-card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease-in-out;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.product-card .card-title {
+    color: var(--cor-texto-escuro);
+    font-weight: 600;
+}
+
+.product-card .btn {
+    border-radius: 50px;
+    padding: 8px 25px;
+    font-weight: 500;
+    border-color: var(--cor-secundaria);
+    color: var(--cor-secundaria);
+}
+
+.product-card .btn:hover {
+    background-color: var(--cor-secundaria);
+    color: white;
+}
+
+
+/* =================================== */
+/* ESTILOS DA SEÇÃO DE BLOG            */
+/* =================================== */
+.btn-custom-primary {
+    background-color: var(--cor-primaria);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 30px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-custom-primary:hover {
+    background-color: var(--cor-primaria);
+    color: white;
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+#blog img {
+    border-radius: 15px;
+}
+
+
+/* =================================== */
+/* ESTILOS DO RODAPÉ (FOOTER)          */
+/* =================================== */
+.footer-custom {
+    background-color: var(--cor-primaria);
+}
+
+.footer-custom a {
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+.footer-custom a:hover {
+    opacity: 0.8;
+}
