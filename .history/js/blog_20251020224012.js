@@ -9,7 +9,7 @@ async function carregarPosts() {
     if (!listaPosts) return;
 
     try {
-        const response = await fetch('http://localhost:8080/api/blog');
+        const response = await fetch('blog.json');
         const posts = await response.json();
 
         listaPosts.innerHTML = ''; // Limpa o container

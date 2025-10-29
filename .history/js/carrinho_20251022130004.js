@@ -40,7 +40,7 @@ function carregarCarrinho() {
              const precoItem = precoUnitario * item.quantidade;
              subtotal += precoItem;
 
-             const itemHTML = `
+            const itemHTML = `
                 <div class="card mb-3 section-card" data-aos="fade-up">
                     <div class="card-body">
                         <div class="row align-items-center">
@@ -67,12 +67,12 @@ function carregarCarrinho() {
                         </div>
                     </div>
                 </div>
-             `;
-             containerItens.innerHTML += itemHTML;
-           } else {
+            `;
+            containerItens.innerHTML += itemHTML;
+         } else {
              // Mantém o erro no console caso a conversão falhe no futuro
              console.error("Erro ao converter preço para o item:", item); 
-           }
+         }
     });
 
     if(subtotalElemento) subtotalElemento.textContent = formatarMoeda(subtotal);
@@ -80,7 +80,6 @@ function carregarCarrinho() {
 }
 
 function configurarEventosCarrinho() {
-    // --- Lógica antiga mantida ---
     document.querySelectorAll('.btn-aumentar').forEach(button => {
         button.addEventListener('click', (event) => {
             const variacaoId = event.target.dataset.id;
@@ -102,13 +101,11 @@ function configurarEventosCarrinho() {
         });
     });
     
-    // --- LÓGICA DO BOTÃO FINALIZAR COMPRA ATUALIZADA (DO CÓDIGO NOVO) ---
     const btnFinalizar = document.getElementById('btn-finalizar-compra');
     if (btnFinalizar) {
-        btnFinalizar.addEventListener('click', async (event) => { // Tornamos async
+        btnFinalizar.addEventListener('click', (event) => {
             event.preventDefault(); 
 
-            // 1. Verifica se está logado
             if (!isUserLoggedIn()) {
                 alert("Você precisa fazer login para finalizar a compra."); 
                 sessionStorage.setItem('redirectAfterLogin', window.location.href); 
@@ -116,50 +113,25 @@ function configurarEventosCarrinho() {
                 return; 
             }
 
-            // 2. Pega o carrinho atual
             let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
             if (carrinho.length === 0) {
                 alert("Seu carrinho está vazio!");
                 return;
             }
 
-            // 3. Envia o carrinho para a API Back-End
-            try {
-                console.log("Enviando carrinho para API:", carrinho); // Log
-                const response = await fetch('http://localhost:8080/api/pedidos', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        // Futuramente: Adicionar token de autenticação aqui
-                        // 'Authorization': 'Bearer SEU_TOKEN_JWT' 
-                    },
-                    body: JSON.stringify(carrinho) // Envia a lista de itens
-                });
-                console.log("Resposta da API de Pedidos:", response.status); // Log
+            let historico = JSON.parse(localStorage.getItem('historicoPedidos')) || [];
+            const novoPedido = {
+                id: Date.now(), 
+                data: new Date().toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' }),
+                itens: carrinho,
+                total: calcularTotalPedido(carrinho) 
+            };
+            historico.unshift(novoPedido);
+            localStorage.setItem('historicoPedidos', JSON.stringify(historico));
 
-                if (response.ok) { // Status 201 Created
-                    // Pedido criado com sucesso no backend!
-
-                    // 4. Salva no sessionStorage para a pág. agradecimento (opcional, mas útil)
-                    sessionStorage.setItem('ultimoPedido', JSON.stringify(carrinho)); 
-
-                    // 5. Limpa o carrinho do localStorage
-                    localStorage.removeItem('carrinho');
-
-                    // 6. Redireciona para agradecimento
-                    window.location.href = 'agradecimento.html'; 
-
-                } else {
-                    // Erro retornado pela API
-                    const errorData = await response.json().catch(() => ({}));
-                    alert(`Erro ao finalizar pedido: ${errorData.message || response.statusText}`);
-                }
-
-            } catch (error) {
-                // Erro de rede
-                console.error('Erro CRÍTICO ao finalizar pedido:', error);
-                alert('Erro de conexão ao finalizar o pedido. Tente novamente mais tarde.');
-            }
+            sessionStorage.setItem('ultimoPedido', JSON.stringify(carrinho));
+            localStorage.removeItem('carrinho');
+            window.location.href = 'agradecimento.html'; 
         });
     }
 }
@@ -224,4 +196,12 @@ function isUserLoggedIn() {
     return sessionStorage.getItem('usuarioLogado') !== null;
 }
 
-// A função calcularTotalPedido() foi removida, pois o backend fará esse cálculo agora.
+function calcularTotalPedido(itens) {
+    return itens.reduce((total, item) => {
+        const precoNumero = parsePrecoParaNumero(item.preco); 
+        if (!isNaN(precoNumero)) {
+            total += precoNumero * item.quantidade;
+        }
+        return total;
+    }, 0);
+}

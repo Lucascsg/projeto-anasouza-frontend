@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Ana Souza</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@700&family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+<body class="bg-white-page">
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+            <div class="container-fluid"> <a class="navbar-brand logo-text" href="index.html"> <div>Ana Souza</div> <small class="logo-subtitle">MODA ARTESANAL</small> </a> <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"> <span class="navbar-toggler-icon"></span> </button> <div class="collapse navbar-collapse" id="navbarNav"> <ul class="navbar-nav mx-auto"> <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li> <li class="nav-item"><a class="nav-link" href="index.html#sobre">Sobre</a></li> <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li> <li class="nav-item"><a class="nav-link" href="produtos.html">Produtos</a></li> <li class="nav-item"><a class="nav-link active" href="contato.html">Contato</a></li> </ul> <div class="navbar-icons d-flex"> <a href="carrinho.html" class="nav-link position-relative"> <i class="bi bi-cart"></i> <span class="badge rounded-pill bg-danger position-absolute top-0 start-100 translate-middle" id="contador-carrinho" style="display: none;">0</span> </a> <a href="login.html" class="nav-link ms-3"><i class="bi bi-person"></i></a> </div> </div> </div>
+        </nav>
+    </header>
+
+    <main class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="section-card p-4 p-md-5">
+                    <div class="row">
+                        <div class="col-12 text-center mb-5">
+                            <h1 class="display-5 fw-bold">Entre em Contato</h1>
+                            <p class="lead text-muted">Adoraríamos ouvir você!</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5 mb-4 mb-md-0">
+                            <h5 class="fw-bold mb-3">Informações de Contato</h5>
+                            <p class="mb-2"><i class="bi bi-geo-alt-fill me-2"></i>São Caetano do Sul, SP</p>
+                            <p class="mb-2"><i class="bi bi-envelope-fill me-2"></i>contato@anasouza.com (Exemplo)</p>
+                            <p class="mb-4"><i class="bi bi-telephone-fill me-2"></i>(11) 94781-8104</p>
+
+                            <h5 class="fw-bold mb-3">Redes Sociais</h5>
+                            <a href="#" class="text-dark fs-4 me-3"><i class="bi bi-instagram"></i></a>
+                            <a href="#" class="text-dark fs-4 me-3"><i class="bi bi-pinterest"></i></a>
+                            <a href="#" class="text-dark fs-4"><i class="bi bi-whatsapp"></i></a>
+                        </div>
+
+                        <div class="col-md-7">
+                            <h5 class="fw-bold mb-3">Envie sua Mensagem</h5>
+                            <form id="contact-form">
+                                <div id="alert-placeholder-contato" class="mb-3"></div>
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="nome-contato" placeholder="Seu Nome" required>
+                                    <label for="nome-contato">Seu Nome</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="email" class="form-control" id="email-contato" placeholder="Seu E-mail" required>
+                                    <label for="email-contato">Seu E-mail</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <textarea class="form-control" placeholder="Sua Mensagem" id="mensagem-contato" style="height: 150px" required></textarea>
+                                    <label for="mensagem-contato">Sua Mensagem</label>
+                                </div>
+                                <button type="submit" class="btn btn-custom-primary">Enviar Mensagem</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="py-4 footer-custom">
+        <div class="container text-center text-white">
+            <div class="row align-items-center">
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <h5 class="text-white">Ana Souza</h5>
+                    <small>Moda Artesanal</small>
+                </div>
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item mx-2"><a href="#" class="text-white">Início</a></li>
+                        <li class="list-inline-item mx-2"><a href="#sobre" class="text-white">Sobre</a></li>
+                        <li class="list-inline-item mx-2"><a href="produtos.html" class="text-white">Produtos</a></li>
+                        <li class="list-inline-item mx-2"><a href="historico.html" class="text-white">Meus Pedidos</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <a href="#" class="text-white fs-4 mx-2"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="text-white fs-4 mx-2"><i class="bi bi-pinterest"></i></a>
+                    <a href="#" class="text-white fs-4 mx-2"><i class="bi bi-whatsapp"></i></a>
+                </div>
+            </div>
+            <hr class="my-4" style="border-color: rgba(255, 255, 255, 0.3);">
+            <small>&copy; 2025 Ana Souza | Todos os direitos reservados.</small>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/contato.js"></script>
+    <script src="js/carrinho.js"></script> 
+</body>
+</html>

@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. Busca os produtos do JSON e os armazena
     async function carregarProdutos() {
         try {
-            const response = await fetch('http://localhost:8080/api/produtos');
+            const response = await fetch('produtos.json');
             todosOsProdutos = await response.json();
             produtosFiltrados = [...todosOsProdutos]; // Inicia com a lista completa
             renderizarProdutos(produtosFiltrados);

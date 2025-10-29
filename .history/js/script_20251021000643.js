@@ -24,7 +24,7 @@ async function carregarProdutos() {
 
     try {
         // Busca o arquivo JSON
-        const response = await fetch('http://localhost:8080/api/produtos');
+        const response = await fetch('produtos.json');
         
         // Converte a resposta em formato JSON
         const produtos = await response.json();
